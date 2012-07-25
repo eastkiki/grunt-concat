@@ -49,8 +49,11 @@ module.exports = function(grunt) {
                     readRemoteFile(filename, cb);
                 });
             } else {
-                fnList.push(function(cb){
-                    readLocalFile(filename, cb);
+                var files = grunt.file.expandFiles(filename);
+                files.forEach(function (f, i) {
+                    fnList.push(function(cb){
+                        readLocalFile(f, cb);
+                    });
                 });
             }
         });
