@@ -1,0 +1,44 @@
+{
+  "name": "grunt-concat",
+  "description": "Concatenate files with remote supports.",
+  "version": "0.1.1",
+  "homepage": "https://github.com/eastkiki/grunt-concat",
+  "author": {
+    "name": "Dong-il Kim",
+    "email": "east715@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:eastkiki/grunt-concat.git"
+  },
+  "bugs": {
+    "url": "https://github.com/eastkiki/grunt-concat/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/eastkiki/grunt-concat/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "grunt.js",
+  "bin": "bin/grunt-concat",
+  "engines": {
+    "node": "*"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "dependencies": {
+    "grunt": "~0.3.11",
+    "request": "*"
+  },
+  "devDependencies": {
+    "grunt": "~0.3.11",
+    "request": "*"
+  },
+  "keywords": [
+    "gruntplugin",
+    "concat",
+    "remote"
+  ]
+}
