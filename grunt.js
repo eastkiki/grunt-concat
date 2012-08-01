@@ -5,12 +5,15 @@ module.exports = function(grunt) {
     test: {
       files: ['test/**/*.js']
     },
-    lint: {
-      files: ['grunt.js', 'tasks/**/*.js', 'test/**/*.js']
-    },
-    watch: {
-      files: '<config:lint.files>',
-      tasks: 'default'
+    concat: {
+      dist: {
+          src: [
+              'http://s1.daumcdn.net/svc/original/U0301/cssjs/ejohn/class-0.1.0.js',
+              'grunt.js'
+          ],
+          dest: 'dist/test.js',
+          separator: '/*****************************/\n'
+      }
     },
     jshint: {
       options: {
@@ -35,6 +38,6 @@ module.exports = function(grunt) {
   grunt.loadTasks('tasks');
 
   // Default task.
-  grunt.registerTask('default', 'lint test');
+  grunt.registerTask('default', 'concat');
 
 };
