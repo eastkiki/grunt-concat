@@ -32,15 +32,6 @@ module.exports = function(grunt) {
                 }
             });
         }
-        function readLocalFile(filename, cb) {
-            fs.readFile(filename, "utf-8", function (err, data) {
-                if (err) {
-                    cb({e:err,filepath:filename});
-                } else {
-                    cb(null, data);
-                }
-            });
-        }
 
         var fnList = [];
         this.file.src.forEach(function (filename, index) {
@@ -50,10 +41,13 @@ module.exports = function(grunt) {
                 });
             } else {
                 var files = grunt.file.expandFiles(filename);
-                files.forEach(function (f, i) {
-                    fnList.push(function(cb){
-                        readLocalFile(f, cb);
-                    });
+                fnList.push(function(cb) {
+                    var data = grunt.helper('concat', files, {separator: self.data.separator});
+                    if (data === '') {
+                        cb({e:"invalid file path : " + filename, filepath:filename});
+                    } else {
+                        cb(null, data);
+                    }
                 });
             }
         });
