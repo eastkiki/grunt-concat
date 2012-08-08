@@ -1,7 +1,7 @@
 {
   "name": "grunt-concat",
   "description": "Concatenate files with remote supports.",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "homepage": "https://github.com/eastkiki/grunt-concat",
   "author": {
     "name": "Dong-il Kim",
