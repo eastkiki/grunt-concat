@@ -41,6 +41,10 @@ module.exports = function(grunt) {
                 });
             } else {
                 var files = grunt.file.expandFiles(filename);
+                if (files.length === 0) {
+                    grunt.verbose.error();
+                    throw grunt.task.taskError('Unable to read "' + filename);
+                }
                 fnList.push(function(cb) {
                     var data = grunt.helper('concat', files, {separator: self.data.separator});
                     if (data === '') {
@@ -55,7 +59,6 @@ module.exports = function(grunt) {
         var self = this;
         grunt.utils.async.parallel(fnList, function (err, results) {
             if (err) {
-                done(false);
                 grunt.verbose.error();
                 throw grunt.task.taskError('Unable to read "' + err.filepath +
                                             '" file (Error code: ' + err.e.code + ').', err.e);
