@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/eastkiki/grunt-concat.png)](http://travis-ci.org/eastkiki/grunt-concat)
 # grunt-concat
 
 Concatenate files with remote supports.
